@@ -23,4 +23,4 @@ t=tstart
 while t<=tfinish:
     sl.solve(A,b(t))
     t=t+deltat
-print('The efficiency of the scipy.linalg.solve method is', timeit.default_timer()-a, 's')
+print('The efficiency of the scipy.linalg.solve method can be estimated by the solving time which is', timeit.default_timer()-a, 's')
