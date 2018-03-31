@@ -24,3 +24,10 @@ while t<=tfinish:
     sl.solve(A,b(t))
     t=t+deltat
 print('The efficiency of the scipy.linalg.solve method can be estimated by the solving time which is', timeit.default_timer()-a, 's')
+
+a = timeit.default_timer()
+t=tstart
+while t<=tfinish:
+    sl.lu_solve(sl.lu_factor(A,overwrite_a=False),b(tstart),trans=0)
+    t=t+deltat
+print('The efficiency of the scipy.linalg.lu_solve method can be estimated by the solving time which is', timeit.default_timer()-a, 's')
