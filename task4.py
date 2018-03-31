@@ -1,6 +1,8 @@
 import scipy.linalg as sl
 import numpy as np
+import timeit
 N=10
+B=np.zeros((N))
 tstart=0.
 tfinish=10.
 deltat=0.1
