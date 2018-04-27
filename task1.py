@@ -1,5 +1,6 @@
 import math
-R = 8
-L = 4
-V = math.pi * R **2 * L
-print(V)
+print("Enter R")
+R = float(input())
+print("Enter L")
+L = float(input())
+print("The volume is", math.pi * R **2 * L)
