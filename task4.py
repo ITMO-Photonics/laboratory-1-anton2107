@@ -21,22 +21,31 @@ cfinish=sl.solve(A,b(tfinish))
 print('The total x(t) change is', cfinish - cstart)
 
 a = timeit.default_timer()
+k=1
 t=tstart
-while t<=tfinish:
-    sl.solve(A,b(t))
-    t=t+deltat
-print('The efficiency of the scipy.linalg.solve method can be estimated by the solving time which is', timeit.default_timer()-a, 's')
+while k<=1000:
+    while t<=tfinish:
+        sl.solve(A,b(t))
+        t=t+deltat
+    k+=1
+print('The efficiency of the scipy.linalg.solve method can be estimated by the solving time which is', (timeit.default_timer()-a)/1000, 's')
 
 a = timeit.default_timer()
+k=1
 t=tstart
-while t<=tfinish:
-    sl.lu_solve(sl.lu_factor(A,overwrite_a=False),b(t),trans=0)
-    t=t+deltat
-print('The efficiency of the scipy.linalg.lu_solve method can be estimated by the solving time which is', timeit.default_timer()-a, 's')
+while k<=1000:
+    while t<=tfinish:
+        sl.lu_solve(sl.lu_factor(A,overwrite_a=False),b(t),trans=0)
+        t=t+deltat
+    k+=1
+print('The efficiency of the scipy.linalg.lu_solve method can be estimated by the solving time which is', (timeit.default_timer()-a)/1000, 's')
 
 a = timeit.default_timer()
+k=1
 t=tstart
-while t<=tfinish:
-    np.dot(sl.inv(A),b(t))
-    t=t+deltat
-print('The efficiency of the scipy.linalg.inv method can be estimated by the solving time which is', timeit.default_timer()-a, 's')
+while k<=1000:
+    while t<=tfinish:
+        np.dot(sl.inv(A),b(t))
+        t=t+deltat
+    k+=1
+print('The efficiency of the scipy.linalg.inv method can be estimated by the solving time which is', (timeit.default_timer()-a)/1000, 's')
